@@ -1,0 +1,107 @@
+﻿@model Zee_ST10379243_Part2.Models.IncidentReportViewModel
+@{
+    ViewData["Title"] = "Report Incident";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h4 class="mb-0"><i class="fas fa-exclamation-triangle"></i> Report Disaster Incident</h4>
+                </div>
+                <div class="card-body">
+                    @if (TempData["SuccessMessage"] != null)
+                    {
+                        <div class="alert alert-success">
+                            @TempData["SuccessMessage"]
+                        </div>
+                    }
+
+                    <form asp-action="Report" method="post">
+                        @Html.AntiForgeryToken()
+                        <div asp-validation-summary="All" class="text-danger"></div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Title" class="form-label"></label>
+                            <input asp-for="Title" class="form-control" placeholder="Brief title of the incident" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Description" class="form-label"></label>
+                            <textarea asp-for="Description" class="form-control" rows="4" placeholder="Detailed description of what happened"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="Location" class="form-label"></label>
+                                    <input asp-for="Location" class="form-control" placeholder="City, Town, or Area" />
+                                    <span asp-validation-for="Location" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="IncidentDate" class="form-label"></label>
+                                    <input asp-for="IncidentDate" class="form-control" type="datetime-local" />
+                                    <span asp-validation-for="IncidentDate" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="DisasterType" class="form-label"></label>
+                                    <select asp-for="DisasterType" class="form-control">
+                                        <option value="">Select Disaster Type</option>
+                                        <option value="Flood">Flood</option>
+                                        <option value="Fire">Fire</option>
+                                        <option value="Earthquake">Earthquake</option>
+                                        <option value="Storm">Storm</option>
+                                        <option value="Drought">Drought</option>
+                                        <option value="Landslide">Landslide</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <span asp-validation-for="DisasterType" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="UrgencyLevel" class="form-label"></label>
+                                    <select asp-for="UrgencyLevel" class="form-control">
+                                        <option value="">Select Urgency Level</option>
+                                        <option value="Low">Low</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="High">High</option>
+                                        <option value="Critical">Critical</option>
+                                    </select>
+                                    <span asp-validation-for="UrgencyLevel" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="AffectedAreas" class="form-label"></label>
+                            <input asp-for="AffectedAreas" class="form-control" placeholder="Specific areas or communities affected" />
+                            <span asp-validation-for="AffectedAreas" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a asp-action="Index" class="btn btn-secondary me-md-2">Cancel</a>
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fas fa-paper-plane"></i> Submit Report
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

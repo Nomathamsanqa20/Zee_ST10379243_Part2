@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Zee_ST10379243_Part2.Models.IncidentReport>
+@{
+    ViewData["Title"] = "Disaster Incidents";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2><i class="fas fa-exclamation-triangle text-danger"></i> Disaster Incidents</h2>
+        <a asp-action="Report" class="btn btn-danger">
+            <i class="fas fa-plus"></i> Report New Incident
+        </a>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            <i class="fas fa-info-circle"></i> No incident reports found.
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var incident in Model)
+            {
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 border-@GetUrgencyColor(incident.UrgencyLevel)">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <span class="badge bg-@GetUrgencyColor(incident.UrgencyLevel)">
+                                @incident.UrgencyLevel
+                            </span>
+                            <small class="text-muted">@incident.ReportedAt.ToString("MMM dd, yyyy")</small>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">@incident.Title</h5>
+                            <p class="card-text">@incident.Description</p>
+                            <div class="mb-2">
+                                <strong><i class="fas fa-map-marker-alt"></i> Location:</strong> @incident.Location
+                            </div>
+                            <div class="mb-2">
+                                <strong><i class="fas fa-calendar"></i> Incident Date:</strong>
+                                @incident.IncidentDate.ToString("MMM dd, yyyy HH:mm")
+                            </div>
+                            <div class="mb-2">
+                                <strong><i class="fas fa-tag"></i> Type:</strong>
+                                <span class="badge bg-secondary">@incident.DisasterType</span>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <span class="badge bg-@GetStatusColor(incident.Status)">@incident.Status</span>
+                            <a asp-action="Details" asp-route-id="@incident.IncidentId" class="btn btn-sm btn-outline-primary">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@functions {
+    string GetUrgencyColor(string urgency)
+    {
+        return urgency?.ToLower() switch
+        {
+            "critical" => "danger",
+            "high" => "warning",
+            "medium" => "info",
+            "low" => "success",
+            _ => "secondary"
+        };
+    }
+
+    string GetStatusColor(string status)
+    {
+        return status?.ToLower() switch
+        {
+            "pending" => "warning",
+            "under review" => "info",
+            "in progress" => "primary",
+            "resolved" => "success",
+            _ => "secondary"
+        };
+    }
+}

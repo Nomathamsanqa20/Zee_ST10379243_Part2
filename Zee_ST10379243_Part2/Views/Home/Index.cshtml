@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="hero-section">
+    <div class="container">
+        <h1 class="display-4 mb-4">Together We Can Make a Difference</h1>
+        <p class="lead mb-4">Providing immediate relief and long-term support to communities affected by natural disasters and emergencies.</p>
+        <div class="row g-3 justify-content-center">
+            <div class="col-auto">
+                <a asp-controller="Incident" asp-action="Report" class="btn btn-danger btn-lg">
+                    <i class="fas fa-exclamation-triangle"></i> Report Emergency
+                </a>
+            </div>
+            <div class="col-auto">
+                <a asp-controller="Donation" asp-action="Create" class="btn btn-success btn-lg">
+                    <i class="fas fa-donate"></i> Make Donation
+                </a>
+            </div>
+            <div class="col-auto">
+                <a asp-controller="Volunteer" asp-action="Register" class="btn btn-warning btn-lg">
+                    <i class="fas fa-hands-helping"></i> Become Volunteer
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row text-center mb-5">
+        <div class="col-md-4">
+            <div class="card feature-card h-100">
+                <div class="card-body">
+                    <i class="fas fa-exclamation-circle fa-3x text-danger mb-3"></i>
+                    <h5 class="card-title">Emergency Reporting</h5>
+                    <p class="card-text">Report disaster incidents quickly and efficiently to ensure timely response and assistance.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card feature-card h-100">
+                <div class="card-body">
+                    <i class="fas fa-box-open fa-3x text-success mb-3"></i>
+                    <h5 class="card-title">Resource Donation</h5>
+                    <p class="card-text">Donate essential resources like food, clothing, and medical supplies to affected communities.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card feature-card h-100">
+                <div class="card-body">
+                    <i class="fas fa-users fa-3x text-primary mb-3"></i>
+                    <h5 class="card-title">Volunteer Coordination</h5>
+                    <p class="card-text">Join our network of volunteers and contribute your time and skills to relief efforts.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-8 mx-auto">
+            <h2 class="text-center mb-4">Recent Emergency Incidents</h2>
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle"></i>
+                <strong>Latest Updates:</strong> Stay informed about recent disaster incidents and relief efforts in your area.
+            </div>
+            <div class="text-center">
+                <a asp-controller="Incident" asp-action="Index" class="btn btn-outline-primary">
+                    View All Incidents <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
