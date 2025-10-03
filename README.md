@@ -1,113 +1,121 @@
-
-Disaster Alleviation Foundation - Web Application
-https://img.shields.io/badge/Azure-DevOps-blue
-https://img.shields.io/badge/.NET-8.0-purple
-https://img.shields.io/badge/ASP.NET-Core-green
-https://img.shields.io/badge/Database-SQL%2520Server-red
-
-A comprehensive web application for disaster management and relief coordination, built with ASP.NET Core 8.0 and Azure cloud services.
-
-🌟 Overview
-The Disaster Alleviation Foundation platform enables efficient coordination of disaster relief efforts through:
-
-Incident Reporting - Real-time disaster incident reporting and tracking
-
-Resource Management - Donation collection and distribution tracking
-
-Volunteer Coordination - Volunteer registration and task management
-
-User Authentication - Secure role-based access control
+📋 Project Overview
+The Zee Alleviation Foundation is a comprehensive disaster relief management system built with ASP.NET Core MVC. The platform enables efficient coordination of emergency response efforts through incident reporting, donation management, and volunteer coordination.
 
 🚀 Features
-Core Functionality
-User Registration & Authentication - Secure signup/login with role-based permissions
+Core Modules
+🔴 Incident Management - Report and track emergency incidents
 
-Incident Management - Report, track, and manage disaster incidents
+💰 Donation System - Manage monetary and resource donations
 
-Donation System - Accept and manage various types of donations (food, clothing, medical supplies, financial)
+👥 Volunteer Coordination - Register and manage volunteers
 
-Volunteer Portal - Volunteer registration, task assignment, and scheduling
+👤 User Management - Secure authentication and user profiles
 
-Admin Dashboard - Comprehensive management interface
+Key Functionalities
+Real-time incident reporting and tracking
 
-Technical Features
-Responsive Design - Mobile-first, professional UI/UX
+Donation categorization and management
 
-Real-time Updates - Live incident and donation tracking
+Volunteer skill matching and availability tracking
 
-Secure Authentication - ASP.NET Core Identity with Azure AD integration
+Responsive design for all devices
 
-Database Management - Entity Framework Core with SQL Server
+Professional dashboard with analytics
 
-Cloud Ready - Full Azure DevOps pipeline integration
-
-🛠 Technology Stack
-Backend
-ASP.NET Core 8.0 - Web framework
-
-Entity Framework Core - ORM and data access
-
-ASP.NET Core Identity - Authentication and authorization
-
-SQL Server - Database management
-
+🛠️ Technology Stack
 Frontend
-Bootstrap 5.3 - Responsive UI framework
+HTML5 with Razor syntax
 
-Font Awesome - Icons and visual elements
+CSS3 with custom properties and modern features
 
-JavaScript/jQuery - Client-side interactivity
+Bootstrap 5.3.0 - Responsive framework
 
-Razor Pages - Server-side rendering
+Font Awesome 6.0.0 - Icons
 
-DevOps & Cloud
-Azure DevOps - CI/CD pipelines
+Google Fonts - Poppins & Inter fonts
 
-Azure App Service - Hosting platform
+Backend
+ASP.NET Core MVC
 
-Azure SQL Database - Cloud database
+Entity Framework Core
 
-Azure Key Vault - Secrets management
+SQL Server (or your preferred database)
 
-Application Insights - Monitoring and analytics
+Authentication & Authorization
 
-📋 Prerequisites
-Before running this application, ensure you have:
+📁 Project Structure
+text
+Sindiswe-Alleviation-Foundation/
+│
+├── Controllers/
+│   ├── HomeController.cs
+│   ├── IncidentController.cs
+│   ├── DonationController.cs
+│   └── VolunteerController.cs
+│
+├── Models/
+│   ├── User.cs
+│   ├── LoginViewModel.cs
+│   ├── RegisterViewModel.cs
+│   ├── IncidentReport.cs
+│   ├── Donation.cs
+│   └── Volunteer.cs
+│
+├── Views/
+│   ├── Home/
+│   │   ├── Index.cshtml
+│   │   ├── Login.cshtml
+│   │   ├── Register.cshtml
+│   │   └── Profile.cshtml
+│   │
+│   ├── Incident/
+│   │   ├── Index.cshtml
+│   │   ├── Report.cshtml
+│   │   └── Details.cshtml
+│   │
+│   ├── Donation/
+│   │   ├── Index.cshtml
+│   │   ├── Create.cshtml
+│   │   └── AllDonations.cshtml
+│   │
+│   └── Volunteer/
+│       ├── Index.cshtml
+│       ├── Register.cshtml
+│       └── MyRegistration.cshtml
+│
+├── wwwroot/
+│   ├── css/
+│   ├── js/
+│   └── images/
+│
+└── Program.cs
+🎨 Design Features
+Visual Design
+Modern Color Scheme: Blue and purple gradients with professional accents
 
-.NET 8.0 SDK
+Glass Morphism Effects: Frosted glass navigation and cards
+
+Responsive Layout: Mobile-first design approach
+
+Interactive Elements: Smooth animations and hover effects
+
+Professional Typography: Poppins and Inter font combination
+
+Layout Components
+Left Sidebar Navigation - Fixed navigation with user menu
+
+Top Navigation Bar - Page title and user actions
+
+Hero Sections - Engaging landing areas with call-to-action buttons
+
+Card-based Design - Consistent card components throughout
+
+Statistics Dashboard - Impact metrics and analytics
+
+🔧 Installation & Setup
+Prerequisites
+.NET 6.0 or later
+
+SQL Server (or compatible database)
 
 Visual Studio 2022 or VS Code
-
-SQL Server (LocalDB or Express)
-
-Azure CLI (for deployment)
-
-Git
-
-🏗 Project Structure
-text
-DisasterAlleviationFoundation/
-├── DisasterAlleviationFoundation.Web/
-│   ├── Controllers/          # MVC Controllers
-│   ├── Models/              # Data Models and ViewModels
-│   ├── Views/               # Razor Views
-│   ├── Services/            # Business Logic Services
-│   ├── Data/                # Database Context and Migrations
-│   ├── wwwroot/             # Static Files
-│   └── Program.cs           # Application Entry Point
-├── DisasterAlleviationFoundation.Core/
-│   ├── Models/              # Core Domain Models
-│   ├── Services/            # Core Business Services
-│   └── Interfaces/          # Service Contracts
-├── DisasterAlleviationFoundation.Tests/
-│   ├── UnitTests/           # Unit Test Projects
-│   └── IntegrationTests/    # Integration Tests
-├── azure-pipelines.yml      # CI/CD Pipeline
-└── README.md               # Project Documentation
-🚀 Quick Start
-Local Development Setup
-Clone the Repository
-
-bash
-git clone https://dev.azure.com/your-organization/DisasterAlleviationFoundation/_git/DisasterAlleviationFoundation
-cd DisasterAlleviationFoundation
